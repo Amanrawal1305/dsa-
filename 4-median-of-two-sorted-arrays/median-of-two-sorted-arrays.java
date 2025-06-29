@@ -22,12 +22,12 @@ class Solution {
 
         if (total % 2 == 1) {
             
-            return merged[total / 2];
+            return(double) merged[total / 2];
         } else {
             // If the total number of elements is even
             int middle1 = merged[total / 2 - 1];
             int middle2 = merged[total / 2];
-            return ( middle1 +  middle2) / 2.0;
+            return ( (double)middle1 + (double) middle2) / 2.0;
         }
     }
 }
