@@ -1,17 +1,23 @@
 class Solution {
     public String makeFancyString(String s) {
-        StringBuilder answer = new StringBuilder();
 
-        for (int i = 0; i < s.length(); i++) {
-            char c = s.charAt(i);
-            int len = answer.length();
+        char[] chars = s.toCharArray();
+        char last = chars[0];
+        int count = 1;
+        int pos = 1;
 
-            // Only add if the last two characters are not the same as c
-            if (len <= 1 || !(answer.charAt(len - 1) == c && answer.charAt(len - 2) == c)) {
-                answer.append(c);
+        for (int i = 1; i < chars.length; i++) {
+            if (chars[i] != last) {
+                last = chars[i];
+                count = 0;
             }
+
+            if (++count > 2) continue;
+
+            chars[pos++] = chars[i];
         }
 
-        return answer.toString();
+        return new String(chars, 0, pos);
+        
     }
 }
